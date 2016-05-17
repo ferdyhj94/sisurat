@@ -12,11 +12,18 @@
                        </div> @endif
                 <div class="panel-body">
                     You are logged in {{Auth::user()->username}} !<br>
-                    <a href="{{url('listguru')}}" class="btn btn-default">Daftar Guru</a><br>
-                    <a href="{{url('listsiswa')}}" class="btn btn-default">Daftar Siswa</a><br>
-                    <a href="{{url('listadm')}}" class="btn btn-default">Daftar Admin</a><br>
-                    <a href="{{url('listsurat')}}" class="btn btn-default">Daftar Surat</a><br>
-                    <a href="{{url('listmemo')}}" class="btn btn-default">Daftar Memo</a><br>
+                    <img src="{{$user->foto}}" alt="..." class="img-circle">
+                    <br>
+                   <label>Username</label>
+                   <input type="text" class="form-control" value="{{$user->username}} " disabled>
+                   <br>
+                   <label>Hak Akses</label>
+                   <input type="text" class="form-control" value="{{$user->hak_akses}} " disabled>
+                   <br>
+                   <label>Last Login</label>
+                   <input type="text" class="form-control" value="{{$user->updated_at}} " disabled>
+                   <br>
+                <a href="{{url('editprofiladm')}}" class="btn btn-primary">Edit Profil</a>
                 </div>
             </div>
         </div>

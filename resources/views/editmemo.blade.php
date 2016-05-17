@@ -13,9 +13,9 @@
 
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="post" action="{{ url('/editmemops') }}">
-                        {!! csrf_field() !!}
-
-                        <!-- <div class="form-group{{ $errors->has('nama') ? ' has-error' : '' }}">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="id_memo" value="{{$memo->id_memo }}">
+                         <div class="form-group{{ $errors->has('nama') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Nama</label>
 
                             <div class="col-md-6">
@@ -42,12 +42,17 @@
                                 @endif
                             </div>
                         </div>
- -->
+
                         <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Status</label>
 
                             <div class="col-md-6">
-                                   <input type="text" class="form-control" name="nama">
+                                   <!-- <input type="text" class="form-control" name="status"> -->
+                                   <select name="status" class="form-control">
+                                    <option value="pending">Pending</option>
+                                    <option value="verifikasi">Sudah Verfikasi</option>
+                                    <option value="cetak">Siap Cetak</option>
+                                   </select>
                                 @if ($errors->has('status'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('status') }}</strong>

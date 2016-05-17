@@ -11,26 +11,6 @@
                         <strong>{{ Session::get('message')}}</strong>
                        </div> @endif
                 <div class="panel-body">
-                  @if($surat==null)
-                  <div class="table-responsive">
-                   <table class="table table-bordered">
-                    <tr>
-                      <th>No.</th>
-                      <th>Surat</th>
-                      <th>Tanggal Buat</th>
-                      <th>Aksi</th>
-                    </tr>
-                    <?php $no=1;
-                  ?>
-                  
-                    <tr>
-                      <td colspan="4" align="center" ><h4><strong>Tidak ada data</strong></h4></td>
-                    </tr>
-                   </table>
-                  
-                </div>
-                @else
-                
                 <div class="table-responsive">
                    <table class="table table-bordered">
                     <tr>
@@ -53,8 +33,6 @@
                       <td><a href="{{ asset('/file/'  . $data->surat) }}" target="_blank" ><button class="btn btn-default"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"> Download file</span></button></a> </td>
                     </tr>
                     @endforeach
-                     
-                     @endif   
                    </table>
                       
 

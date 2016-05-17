@@ -56,13 +56,13 @@
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/reguser') }}">Register</a></li>
                     @elseif (Auth::user()->hak_akses=='admin')
                     <li><a href="{{ url('/dashboardadm') }}">{{Auth::user()->username}}</a> </li>
-                    <li><a href="{{ url('/dashboardadm') }}">Memo</a> </li>
+                    <li><a href="{{ url('/listmemo') }}">Memo</a> </li>
                     <li><a href="{{ url('/listsiswa') }}">Daftar Siswa</a> </li>
                     <li><a href="{{ url('/listguru') }}">Daftar Guru</a> </li>
                     <li><a href="{{ url('/listsurat') }}">Daftar Surat</a> </li>
+                    <li><a href="{{ url('/reguser') }}">Register</a></li>
                     <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                     @elseif (Auth::user()->hak_akses=='kepsek')
                     <li><a href="{{ url('/dashboardadm') }}">{{Auth::user()->username}}</a> </li>
@@ -77,6 +77,7 @@
                     @elseif (Auth::user()->hak_akses=='Siswa')
                     <li><a href="{{ url('/dashboardadm') }}">{{Auth::user()->username}}</a> </li>
                     <li><a href="{{url('listmemosiswa')}}">Memo</a> </li>
+                    <li><a href="{{ url('/listsuratsiswa') }}">Daftar Surat</a> </li>
                     <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                     <!--     <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

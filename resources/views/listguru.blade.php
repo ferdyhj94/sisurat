@@ -28,7 +28,7 @@
                   @foreach($guru as $data)
                     <tr>
                       <td>{{$no++}}</td>
-                      <td>{{$data->nik}}</td>
+                      <td>{{$data->nip}}</td>
                       <td>{{$data->nama}} </td>
                       <td>{{$data->alamat}} </td>
                       <td>{{$data->wali_kelas}} </td>
@@ -37,7 +37,7 @@
                     </tr>
                    </table>
                    @endforeach
-                     {{$siswa->render()}}
+                     {{$guru->render()}}
                 </div>
                 </div>
             </div>

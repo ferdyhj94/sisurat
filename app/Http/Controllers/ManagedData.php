@@ -76,7 +76,7 @@ class ManagedData extends Controller
     public function editmemo($id)
     {
         $data = DB::table('memo')->where('id_memo','=',$id)->first();
-        return view('editmemo')->with('memo',$data);
+        return View::make('editmemo')->with('memo',$data);
     }
 
     public function editmemops()
@@ -133,6 +133,18 @@ class ManagedData extends Controller
             DB::table('surat')->insert($data);
         return redirect::to('listsurat')->with('message','berhasil menambahkan surat');
         
+    }
+
+    public function listsuratsiswa(){
+     $userdata=Auth::user()->username;    
+        $data = DB::table('surat')
+                ->join('memo','surat.no_memo','=','memo.no_memo')
+                ->join('user','nama_pengirim','=','username')
+                ->select('*')
+                ->where('username','=',$userdata)
+                ->paginate(50);
+
+        return view('listsuratsiswa')->with('surat',$data);
     }
 
     public function delmemo($id)

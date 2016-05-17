@@ -30,7 +30,7 @@ class LoginController extends Controller
     	{
     		if(Auth::user()->hak_akses == 'admin')
     		{
-    			return Redirect::to('home');
+    			return Redirect::to('dashboardadm');
     			
     		}elseif(Auth::user()->hak_akses == 'wali_kls'||'kepsek')
     		{
@@ -78,5 +78,11 @@ class LoginController extends Controller
         return Redirect::to('login')->with('message','Berhasil logout');
     }
 
+    public function dashboardadm()
+    {
+        $user = DB::table('user')->get();
+
+        return view('dashboardadm')->with('user',$user);
+    }
     
 }

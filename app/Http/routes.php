@@ -72,10 +72,11 @@ if(Auth::user()){
 }
 });
 
-
-Route::get('dashboardadm',function(){
-return view('dashboardadm');
+Route::get('editprofiladm',function(){
+    return view('editprofiladm');
 });
+
+Route::get('dashboardadm','LoginController@dashboardadm');
 
 Route::get('dashboardsiswa',function(){
 return view('dashboardsiswa');
@@ -101,6 +102,7 @@ Route::get('listguru','ManagedData@listguru');
 Route::get('listsiswa','ManagedData@listsiswa');
 Route::get('listuser','ManagedData@listuser');
 Route::get('listsurat','ManagedData@listsurat');
+Route::get('listsuratsiswa','ManagedData@listsuratsiswa');
 Route::get('listmemo','ManagedData@listmemo');
 Route::get('listmemosiswa','ManagedData@listmemosiswa');
 Route::get('reguser',function(){
